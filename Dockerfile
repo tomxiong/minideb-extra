@@ -1,4 +1,4 @@
-FROM bitnami/minideb:stretch
+FROM docker.io/bitnami/minideb:buster
 LABEL maintainer "Tom Xiong <tom.xiong@quest.com>"
 
 # copy from bitnami/minideb-extra Dockerfile and change user bitnami to fms
@@ -13,7 +13,7 @@ RUN  sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS    90/' /etc/login.defs && \
   sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS    1/' /etc/login.defs && \
   sed -i 's/sha512/sha512 minlen=8/' /etc/pam.d/common-password
 
-ENV TINI_VERSION v0.18.0
+ENV TINI_VERSION v0.19.0
 ENV TINI_GPG_KEY 595E85A6B1B4779EA4DAAEC70B588DFF0527A9B7
 
 RUN cd /tmp && \    
